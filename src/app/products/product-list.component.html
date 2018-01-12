@@ -2,7 +2,7 @@
 <div class="container">
     <div class="panel panel-primary">
         <div class="panel-heading">Product List</div>
-        <div class="pannel-body" *ngIf='products&&products.length'>
+        <div class="pannel-body">
             <div class="container">
                 <br>
                 <Label for="filter">Filter by:</Label>
@@ -10,7 +10,7 @@
             </div>
             <h4>Filtered by:</h4>
             <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table table-striped" *ngIf='products&&products.length'>
                     <th><button class="button btn-primary">Show Image</button></th>
                     <th>Product</th>
                     <th>Code</th>
