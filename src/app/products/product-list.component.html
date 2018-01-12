@@ -11,12 +11,27 @@
             <h4>Filtered by:</h4>
             <div class="table-responsive">
                 <table class="table table-striped" *ngIf='products&&products.length'>
-                    <th><button class="button btn-primary">Show Image</button></th>
-                    <th>Product</th>
-                    <th>Code</th>
-                    <th>Available</th>
-                    <th>Price</th>
-                    <th>5 Star Rating</th>
+                    <tr>
+                        <th>
+                            <button class="button btn-primary">Show Image</button>
+                        </th>
+                        <th>Product</th>
+                        <th>Code</th>
+                        <th>Available</th>
+                        <th>Price</th>
+                        <th>5 Star Rating</th>
+                    </tr>
+
+                    <tr *ngFor='let pdt of products'>
+                        <td></td>
+                        <td>{{pdt.productName}}</td>
+                        <td>{{pdt.productCode}}</td>
+                        <td>{{pdt.price}}</td>
+                        <td>{{pdt.price}}</td>
+                        <td>{{pdt.starRating}}</td>
+                    </tr>
+ 
+
                 </table>
                 
             </div>
