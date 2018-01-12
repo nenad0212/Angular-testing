@@ -1,0 +1,25 @@
+
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Product List</div>
+        <div class="pannel-body" *ngIf='products&&products.length'>
+            <div class="container">
+                <br>
+                <Label for="filter">Filter by:</Label>
+                <input type="text" id="filter">
+            </div>
+            <h4>Filtered by:</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <th><button class="button btn-primary">Show Image</button></th>
+                    <th>Product</th>
+                    <th>Code</th>
+                    <th>Available</th>
+                    <th>Price</th>
+                    <th>5 Star Rating</th>
+                </table>
+                
+            </div>
+        </div>
+    </div>
+</div>
