@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { log } from 'util';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { Component } from '@angular/core';
 export class ProductListComponent {
 
   thumbnailWidthInPx: number = 100;
+  showImage: boolean = false;
 
 products: any[] = [
         {
@@ -35,4 +37,9 @@ products: any[] = [
 'imageUrl' : 'https://static.chemistwarehouse.com.au/ams/media/pi/70243/F2D_200.jpg'
         },
     ];
+    toggleImageHandler(): void {
+
+      this.showImage = !this.showImage;
+      console.log('toggle image btn clicked: showImage:' + this.showImage);
+    }
 }

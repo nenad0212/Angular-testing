@@ -13,7 +13,7 @@
                 <table class="table table-striped" *ngIf='products&&products.length'>
                     <tr>
                         <th>
-                            <button class="button btn-primary">Show Image</button>
+                            <button class="button btn-primary" (click)='toggleImageHandler()'>{{showImage ? 'Hide' : 'Show'}} Image</button>
                         </th>
                         <th>Product</th>
                         <th>Code</th>
@@ -24,7 +24,7 @@
 
                     <tr *ngFor='let pdt of products'>
 <td>
-<img src='{{pdt.imageUrl}}' [alt]='pdt.productName' [title]='pdt.productName' [style.width.px]='thumbnailWidthInPx'>
+<img *ngIf='showImage' src='{{pdt.imageUrl}}' [alt]='pdt.productName' [title]='pdt.productName' [style.width.px]='thumbnailWidthInPx'>
 
 </td>
 
