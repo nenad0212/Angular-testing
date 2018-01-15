@@ -23,17 +23,21 @@
                     </tr>
 
                     <tr *ngFor='let pdt of products'>
-                        <td></td>
+<td>
+<img src='{{pdt.imageUrl}}' [alt]='pdt.productName' [title]='pdt.productName' [style.width.px]='thumbnailWidthInPx'>
+
+</td>
+
                         <td>{{pdt.productName}}</td>
                         <td>{{pdt.productCode}}</td>
                         <td>{{pdt.releaseDate}}</td>
                         <td>{{pdt.price}}</td>
                         <td>{{pdt.starRating}}</td>
                     </tr>
- 
+
 
                 </table>
-                
+
             </div>
         </div>
     </div>
