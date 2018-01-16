@@ -6,9 +6,10 @@
             <div class="container">
                 <br>
                 <Label for="filter">Filter by:</Label>
-                <input type="text" id="filter">
+<input type="text" id="filter" [(ngModel)]='listFilter'>
+
             </div>
-            <h4>Filtered by:</h4>
+            <h4>Filtered by: {{listFilter}}</h4>
             <div class="table-responsive">
                 <table class="table table-striped" *ngIf='products&&products.length'>
                     <tr>

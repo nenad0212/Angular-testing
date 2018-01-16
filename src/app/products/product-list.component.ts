@@ -12,6 +12,7 @@ export class ProductListComponent {
 
   thumbnailWidthInPx: number = 100;
   showImage: boolean = false;
+  listFilter: string = 'cart';
 
 products: any[] = [
         {
