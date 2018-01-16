@@ -25,14 +25,14 @@
 
                     <tr *ngFor='let pdt of products'>
 <td>
-<img *ngIf='showImage' src='{{pdt.imageUrl}}' [alt]='pdt.productName' [title]='pdt.productName' [style.width.px]='thumbnailWidthInPx'>
+<img *ngIf='showImage' src='{{pdt.imageUrl}}' [alt]='pdt.productName' [title]='pdt.productName | uppercase' [style.width.px]='thumbnailWidthInPx'>
 
 </td>
 
-                        <td>{{pdt.productName}}</td>
+                        <td>{{pdt.productName | uppercase}}</td>
                         <td>{{pdt.productCode}}</td>
                         <td>{{pdt.releaseDate}}</td>
-                        <td>{{pdt.price}}</td>
+                        <td>{{pdt.price | currency: 'AUD':true:'1.2-2'}}</td>
                         <td>{{pdt.starRating}}</td>
                     </tr>
 
