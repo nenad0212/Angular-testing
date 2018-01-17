@@ -23,7 +23,8 @@
                         <th>5 Star Rating</th>
                     </tr>
 
-                    <tr *ngFor='let pdt of products'>
+<tr *ngFor='let pdt of filteredProducts'>
+
 <td>
 <img *ngIf='showImage' src='{{pdt.imageUrl}}' [alt]='pdt.productName' [title]='pdt.productName | uppercase' [style.width.px]='thumbnailWidthInPx'>
 

@@ -13,10 +13,19 @@ import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 export class ProductListComponent implements OnInit{
 
+
   thumbnailWidthInPx: number = 100;
   showImage: boolean = false;
-  listFilter: string = 'cart';
+  _listFilter: string;
 
+  get listFilter(): string {
+    return this._listFilter;
+  }
+  set listFilter(value: string) {
+    this._listFilter = value;
+    this.filteredProducts = this.listFilter ? this.performFiltering(this.listFilter) : this.products;
+  }
+filteredProducts: IProduct[];
 products: IProduct[] = [
         {
             'productId': 2,
@@ -41,6 +50,11 @@ products: IProduct[] = [
 'imageUrl' : 'https://static.chemistwarehouse.com.au/ams/media/pi/70243/F2D_200.jpg'
         },
     ];
+
+    constructor() {
+      this.filteredProducts = this.products;
+    }
+
     toggleImageHandler(): void {
 
       this.showImage = !this.showImage;
@@ -48,5 +62,11 @@ products: IProduct[] = [
     }
     ngOnInit(): void {
      console.log('In lifecycle hook: OnInit');
+    }
+
+    performFiltering(listFilter: string) {
+      const filter = listFilter.toLocaleLowerCase();
+      const result = this.products.filter(product => product.productName.toLocaleLowerCase().indexOf(filter) !== -1);
+      return result;
     }
 }
