@@ -30,7 +30,7 @@
 </td>
 
                         <td>{{pdt.productName | uppercase}}</td>
-                        <td>{{pdt.productCode}}</td>
+                        <td>{{pdt.productCode | convertToSpaces:'-'}}</td>
                         <td>{{pdt.releaseDate}}</td>
                         <td>{{pdt.price | currency: 'AUD':true:'1.2-2'}}</td>
                         <td>{{pdt.starRating}}</td>
