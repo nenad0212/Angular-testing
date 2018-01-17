@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { log } from 'util';
+import { IProduct } from './product';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class ProductListComponent {
   showImage: boolean = false;
   listFilter: string = 'cart';
 
-products: any[] = [
+products: IProduct[] = [
         {
             'productId': 2,
             'productName': 'Healty Care CoEnzyme Q10 150mg 100 Capsules',
@@ -22,7 +23,7 @@ products: any[] = [
             'releaseDate': 'March 18, 2016',
             'description': 'Support heart health',
             'price': 25.99,
-            'original price': 32.99,
+            'originPrice': 32.99,
             'starRating': 4.2,
 'imageUrl' : 'https://static.chemistwarehouse.com.au/ams/media/pi/67884/F2D_200.jpg'
         },
@@ -33,7 +34,7 @@ products: any[] = [
             'releaseDate': 'March 21, 2016',
             'description': 'Supports fat metabolism',
             'price': 8.99,
-            'original price': 9.99,
+            'originPrice': 9.99,
             'starRating': 4.8,
 'imageUrl' : 'https://static.chemistwarehouse.com.au/ams/media/pi/70243/F2D_200.jpg'
         },
