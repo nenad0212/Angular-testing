@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { log } from 'util';
 import { IProduct } from './product';
+import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { IProduct } from './product';
     styleUrls: ['./product-list.component.css']
 })
 
-export class ProductListComponent {
+export class ProductListComponent implements OnInit{
 
   thumbnailWidthInPx: number = 100;
   showImage: boolean = false;
@@ -44,5 +45,8 @@ products: IProduct[] = [
 
       this.showImage = !this.showImage;
       console.log('toggle image btn clicked: showImage:' + this.showImage);
+    }
+    ngOnInit(): void {
+     console.log('In lifecycle hook: OnInit');
     }
 }
