@@ -17,6 +17,7 @@ export class ProductListComponent implements OnInit{
   thumbnailWidthInPx: number = 100;
   showImage: boolean = false;
   _listFilter: string;
+  pageTitle: string = 'Product List';
 
   get listFilter(): string {
     return this._listFilter;
@@ -68,5 +69,9 @@ products: IProduct[] = [
       const filter = listFilter.toLocaleLowerCase();
       const result = this.products.filter(product => product.productName.toLocaleLowerCase().indexOf(filter) !== -1);
       return result;
+    }
+
+    ratingClickedEventHandler(message: string): void {
+     this.pageTitle = `Product List: received a message sent via nested starRating component: ${message}`;
     }
 }

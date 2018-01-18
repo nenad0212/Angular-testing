@@ -1,7 +1,7 @@
 
 <div class="container">
     <div class="panel panel-primary">
-        <div class="panel-heading">Product List</div>
+        <div class="panel-heading">{{pageTitle}}</div>
         <div class="pannel-body">
             <div class="container">
                 <br>
@@ -34,7 +34,7 @@
                         <td>{{pdt.productCode | convertToSpaces:'-'}}</td>
                         <td>{{pdt.releaseDate}}</td>
                         <td>{{pdt.price | currency: 'AUD':true:'1.2-2'}}</td>
-                        <td>{{pdt.starRating}} <pm-star [rating]='pdt.starRating'></pm-star></td>
+                        <td>{{pdt.starRating}} <pm-star [rating]='pdt.starRating' (clickEvent)='ratingClickedEventHandler($event)'></pm-star></td>
                     </tr>
 
 

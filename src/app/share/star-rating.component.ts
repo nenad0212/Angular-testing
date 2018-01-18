@@ -1,5 +1,11 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
-
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  EventEmitter
+} from '@angular/core';
 
 
 @Component({
@@ -22,7 +28,13 @@ export class StarRatingComponent implements OnInit {
   @Input() rating: number;
   starWidth: number = 20;
 
+  @Output() clickEvent: EventEmitter<string> = new EventEmitter();
+
   ngOnInit() {
     this.starWidth = this.rating * 86 / 5;
+  }
+  clickHandler(): void {
+    console.log('clickHandler: clicked');
+    this.clickEvent.emit(this.rating.toString());
   }
 }
