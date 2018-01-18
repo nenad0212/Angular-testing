@@ -34,7 +34,7 @@
                         <td>{{pdt.productCode | convertToSpaces:'-'}}</td>
                         <td>{{pdt.releaseDate}}</td>
                         <td>{{pdt.price | currency: 'AUD':true:'1.2-2'}}</td>
-                        <td>{{pdt.starRating}}</td>
+                        <td>{{pdt.starRating}} <pm-star [rating]='pdt.starRating'></pm-star></td>
                     </tr>
 
 
