@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { log } from 'util';
 import { IProduct } from './product';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { ProductService } from './product.service';
 
 
 @Component({
@@ -18,60 +19,40 @@ export class ProductListComponent implements OnInit{
   showImage: boolean = false;
   _listFilter: string;
   pageTitle: string = 'Product List';
+  filteredProducts: IProduct[];
+  products: IProduct[];
 
   get listFilter(): string {
     return this._listFilter;
   }
+
   set listFilter(value: string) {
     this._listFilter = value;
     this.filteredProducts = this.listFilter ? this.performFiltering(this.listFilter) : this.products;
   }
-filteredProducts: IProduct[];
-products: IProduct[] = [
-        {
-            'productId': 2,
-            'productName': 'Healty Care CoEnzyme Q10 150mg 100 Capsules',
-            'productCode': '00-0001',
-            'releaseDate': 'March 18, 2016',
-            'description': 'Support heart health',
-            'price': 25.99,
-            'originPrice': 32.99,
-            'starRating': 4.2,
-'imageUrl' : 'https://static.chemistwarehouse.com.au/ams/media/pi/67884/F2D_200.jpg'
-        },
-        {
-            'productId': 5,
-            'productName': 'Healthy Care Lecithin 1200mg 100',
-            'productCode': '00-0002',
-            'releaseDate': 'March 21, 2016',
-            'description': 'Supports fat metabolism',
-            'price': 8.99,
-            'originPrice': 9.99,
-            'starRating': 4.8,
-'imageUrl' : 'https://static.chemistwarehouse.com.au/ams/media/pi/70243/F2D_200.jpg'
-        },
-    ];
 
-    constructor() {
-      this.filteredProducts = this.products;
-    }
+  constructor(private _productService: ProductService) {
 
-    toggleImageHandler(): void {
+  }
 
-      this.showImage = !this.showImage;
-      console.log('toggle image btn clicked: showImage:' + this.showImage);
-    }
-    ngOnInit(): void {
-     console.log('In lifecycle hook: OnInit');
-    }
+  toggleImageHandler(): void {
 
-    performFiltering(listFilter: string) {
-      const filter = listFilter.toLocaleLowerCase();
-      const result = this.products.filter(product => product.productName.toLocaleLowerCase().indexOf(filter) !== -1);
-      return result;
-    }
+    this.showImage = !this.showImage;
+    console.log('toggle image btn clicked: showImage:' + this.showImage);
+  }
+  ngOnInit(): void {
+    console.log('In lifecycle hook: OnInit');
+    this.products = this._productService.getProducts();
+    this.filteredProducts = this.products;
+  }
 
-    ratingClickedEventHandler(message: string): void {
-     this.pageTitle = `Product List: received a message sent via nested starRating component: ${message}`;
-    }
+  performFiltering(listFilter: string) {
+    const filter = listFilter.toLocaleLowerCase();
+    const result = this.products.filter(product => product.productName.toLocaleLowerCase().indexOf(filter) !== -1);
+    return result;
+  }
+
+  ratingClickedEventHandler(message: string): void {
+    this.pageTitle = `Product List: received a message sent via nested starRating component: ${message}`;
+  }
 }
