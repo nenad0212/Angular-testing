@@ -8,6 +8,7 @@ import { ProductListComponent } from './products/product-list.component';
 import { ConvertToSpacesPipe } from './share/convert-to-spaces.pipe';
 import { StarRatingComponent } from './share/star-rating.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
