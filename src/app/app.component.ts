@@ -7,6 +7,8 @@ import { ProductService } from './products/product.service';
   template: `
       <div>
         <h1>{{pageTitle}}</h1>
+          <nav><a routerLink="/product-detail">Product Detail</a></nav>
+          <router-outlet></router-outlet>
         <pm-products></pm-products>
       </div>
   `,
